@@ -55,8 +55,9 @@ iwddir		Wind Direction Indicators:  	2. Over 60 minutes.
 "
 # Script Start
 weather_data = read.csv("data_split.csv", header=TRUE)
-weather_data
+#weather_data
 
+# Assign column_names
 column_names <- c(
     "datetime", # Date and Time (utc)
     "rain_mm_i", # Rail indicator
@@ -81,5 +82,16 @@ column_names <- c(
     "cloud_amount" # Cloud amount
 )
 
+# Assign more meaningful names to data
 names(weather_data) <- column_names
+
+# Format String datetime to be usable
+weather_data$datetime <- strptime(weather_data$datetime, format="%d-%b-%Y %H:%M")
+
+# Split date and time into own columns
+weather_data$date <- as.Date(weather_data$datetime)
+weather_data$time <- format(weather_data$datetime, "%H:%M")
+
+library("dplyr")
+
 weather_data
