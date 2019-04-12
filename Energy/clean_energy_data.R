@@ -67,6 +67,8 @@ class(energy_removed_empty$datetime)
 energyDB <- dbConnect(RSQLite::SQLite(), "energy_data.sqlite")
 
 #Reformat datetimeobject to standard ISO String for SQLiteDatabase
-energy_removed_empty$datetime <- as.POSIXct(energy_removed_empty$datetime)
-
+energy_removed_empty$datetime <- as.integer(as.POSIXct(energy_removed_empty$datetime))
+class(energy_removed_empty$datetime)
+class(energy_removed_empty$mwh)
+# Write data to SQLite
 dbWriteTable(energyDB, "irish_energy_data", energy_removed_empty)
