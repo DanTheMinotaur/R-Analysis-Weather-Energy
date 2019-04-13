@@ -8,14 +8,17 @@
 # install.packages(c("dbplyr", "RSQLite"))
 # install.packages("DBI")
 # Load dependencies
+
+source("functions.R")
+
 Packages <- c(
-  "tidyr",
   "dbplyr",
   "RSQLite",
-  "DBI"
+  "DBI",
+  "lubridate"
 )
 
-lapply(Packages, library, character.only = TRUE)
+check.packages(Packages)
 
 # Function to remove any rows with empty values 
 removeEmptyRows <- function(dataFrame) {
@@ -67,8 +70,17 @@ class(energy_removed_empty$datetime)
 energyDB <- dbConnect(RSQLite::SQLite(), "energy_data.sqlite")
 
 #Reformat datetimeobject to standard ISO String for SQLiteDatabase
-energy_removed_empty$datetime <- as.integer(as.POSIXct(energy_removed_empty$datetime))
-class(energy_removed_empty$datetime)
-class(energy_removed_empty$mwh)
+energy_removed_empty$datetimeunix <- as.integer(as.POSIXct(energy_removed_empty$datetime))
+energy_removed_empty$year <- as.integer(year(energy_removed_empty$datetime))
+energy_removed_empty$month <- as.integer(month(energy_removed_empty$datetime))
+energy_removed_empty$day <- as.integer(day(energy_removed_empty$datetime))
+energy_removed_empty$hour <- as.integer(hour(energy_removed_empty$datetime))
+energy_removed_empty$minute <- as.integer(minute(energy_removed_empty$datetime))
+energy_removed_empty$datetime <- as.character(energy_removed_empty$datetime)
+head(energy_removed_empty)
+tail(energy_removed_empty)
+
+class(energy_removed_empty$day)
+
 # Write data to SQLite
 dbWriteTable(energyDB, "irish_energy_data", energy_removed_empty)

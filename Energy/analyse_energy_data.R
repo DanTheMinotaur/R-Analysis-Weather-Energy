@@ -4,13 +4,8 @@
 # Created on: 13/04/2019
 
 # Function checks if package is installed
-check.packages <- function(Package){
-    new.pkg <- Package[!(Package %in% installed.packages()[, "Package"])]
-    if (length(new.pkg))
-        install.packages(new.pkg, dependencies = TRUE)
-    sapply(Package, require, character.only = TRUE)
-}
 
+source("functions.R")
 
 Packages <- c(
     "DBI",
