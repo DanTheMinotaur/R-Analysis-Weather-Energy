@@ -69,7 +69,7 @@ class(energy_removed_empty$datetime)
 # Create SQLite Database
 energyDB <- dbConnect(RSQLite::SQLite(), "energy_data.sqlite")
 
-#Reformat datetimeobject to standard ISO String for SQLiteDatabase
+#Reformat datetimeobject to standard ISO String for SQLiteDatabase and split data into own columns
 energy_removed_empty$datetimeunix <- as.integer(as.POSIXct(energy_removed_empty$datetime))
 energy_removed_empty$year <- as.integer(year(energy_removed_empty$datetime))
 energy_removed_empty$month <- as.integer(month(energy_removed_empty$datetime))
