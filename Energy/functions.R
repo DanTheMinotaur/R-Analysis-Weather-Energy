@@ -10,3 +10,14 @@ check.packages <- function(Package){
         install.packages(new.pkg, dependencies = TRUE)
     sapply(Package, require, character.only = TRUE)
 }
+
+Packages <- c(
+    "DBI"
+)
+
+check.packages(Packages)
+
+# Loads Energy SQLlite DB and returns the connection object
+load.energydb <- function(){
+    dbConnect(RSQLite::SQLite(), "energy_data.sqlite")
+}
