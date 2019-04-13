@@ -1,27 +1,3 @@
-Station Name: ROCHES POINT
-Station Height: 40 M 
-Latitude:51.789  ,Longitude: -8.240
-
-
-date:  -  00 to 00 utc
-rain:  -  Precipitation Amount (mm)
-maxtp: -  Maximum Air Temperature (C)	  
-mintp: -  Minimum  Air Temperature (C)
-gmin:  -  09utc Grass Minimum Temperature (C)
-soil:  -  Mean 10cm soil temperature (C)	
-cbl:   -  Mean CBL Pressure (hpa)
-wdsp:  -  Mean Wind Speed (kt)
-hm:    -  Highest ten minute mean wind speed (kt)		                 
-ddhm:  -  Wind Direction at max 10 min mean (deg)                  
-hg:    -  Highest Gust (kt)
-pe:    -  Potential Evapotranspiration (mm)  
-evap:  -  Evaporation (mm)
-smd_wd:-  Soil Moisture Deficits(mm) well drained
-smd_md:-  Soil Moisture Deficits(mm) moderately drained
-smd_pd:-  Soil Moisture Deficits(mm) poorly drained
-glorad:-  Global Radiation (J/cm sq.)
-ind:   -  Indicator (i)
-
 date,ind,maxtp,ind,mintp,igmin,gmin,ind,rain,cbl,wdsp,ind,hm,ind,ddhm,ind,hg,soil,pe,evap,smd_wd,smd_md,smd_pd,glorad
 01-dec-1955,0,10.9,0,5.9, , ,0,9.1,1004.2,11.5,0,18,0,170,0,24, , , , , , , 
 02-dec-1955,0,12.1,0,4.0, , ,0,0.9,1011.2,12.1,0,23,0,210,0,32, , , , , , , 
