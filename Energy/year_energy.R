@@ -3,16 +3,7 @@
 # Created by: Daniel Devine
 # Created on: 13/04/2019
 
-# Function checks if package is installed
-
 source("functions.R")
-
-Packages <- c(
-    "tidyverse"
-)
-
-# Install packages
-check.packages(Packages)
 
 # Load energy data from DB
 con <- load.energydb()

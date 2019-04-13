@@ -41,7 +41,7 @@ def format_data(json_data):
             ])
     return data
 
-for year in range(2019, 2020):
+for year in range(2010, 2020):
     formatted_data = list()
     print(year)
     for month, last_day in days_of_month.items():

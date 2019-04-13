@@ -5,13 +5,6 @@
 
 source("functions.R")
 
-Packages <- c(
-    "tidyverse"
-)
-
-# Install packages
-check.packages(Packages)
-
 # Load energy data from DB
 energy_data <- load.energydb()
 
@@ -31,4 +24,4 @@ year_month_energy_usage
 year_month_day_energy_usage
 year_month_day_hour_energy_usage
 year_hourly_data_usage
-class(year_daily_data_usage)
+year_daily_data_usage

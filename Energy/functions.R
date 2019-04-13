@@ -11,8 +11,15 @@ check.packages <- function(Package){
     sapply(Package, require, character.only = TRUE)
 }
 
+# Function designed to take a MWH grouping for a single hour
+convert.mwh <- function(mwh, num_hours){
+    <- mwh / num_hours
+}
+
+
 Packages <- c(
-    "DBI"
+    "DBI",
+    "tidyverse"
 )
 
 check.packages(Packages)
