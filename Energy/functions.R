@@ -10,8 +10,3 @@ check.packages <- function(Package){
         install.packages(new.pkg, dependencies = TRUE)
     sapply(Package, require, character.only = TRUE)
 }
-
-# Converts a datetime obhject to an integer value
-to_int <- function(value){
-    as.integer(as.POSIXct(value))
-}
