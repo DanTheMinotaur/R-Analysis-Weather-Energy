@@ -19,5 +19,6 @@ check.packages(Packages)
 
 # Loads Energy SQLlite DB and returns the connection object
 load.energydb <- function(){
-    dbConnect(RSQLite::SQLite(), "energy_data.sqlite")
+    con <- dbConnect(RSQLite::SQLite(), "energy_data.sqlite")
+    dbReadTable(con, "irish_energy_data")
 }
