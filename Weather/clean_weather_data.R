@@ -31,31 +31,3 @@ selected_columns <- c("date", "maxtp", "mintp", "rain", "wdsp", "evap", "soil")
 for (station in file_names) {
     load_weather_data(station, selected_columns)
 }
-
-# w <- load_weather_data("mace-head")
-# colnames(w)
-#
-# selected_columns <- c("date", "maxtp", "mintp", "rain", "wdsp", "evap", "soil")
-# stripped_weather_data <- w[selected_columns]
-# stripped_weather_data$date <- as.Date(stripped_weather_data$date, format="%d-%b-%Y")
-# stripped_weather_data
-# colnames(stripped_weather_data)
-# stripped_weather_data$year <- as.integer(year(stripped_weather_data$date))
-# stripped_weather_data$month <- as.integer(month(stripped_weather_data$date))
-# stripped_weather_data$day <- as.integer(day(stripped_weather_data$date))
-# colnames(stripped_weather_data)
-
-
-
-
-
-#
-# station_data <- list()
-#
-
-#
-# names(station_data[1])
-#weather_data <- read.csv("raw_data/mace-head-daily.csv", header = TRUE)
-#colnames(weather_data)
-#selected_columns <- c("date", "maxtp")
-#stripped_weather_data <- weather_data
