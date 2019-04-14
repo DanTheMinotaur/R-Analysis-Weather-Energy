@@ -13,7 +13,8 @@ check.packages <- function(Package){
 
 Packages <- c(
     "DBI",
-    "tidyverse"
+    "tidyverse",
+    "lubridate"
 )
 
 check.packages(Packages)
