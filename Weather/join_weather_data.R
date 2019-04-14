@@ -26,14 +26,17 @@ weather_station_data <- dbFetch(query_result)
 # print head for validation
 head(weather_station_data)
 
+# Combine weather station data by
 weather_avg <- summarize(group_by(weather_station_data, year, month, day),
 temp = round(mean(avgtemp, na.rm = TRUE), 2),
 wind_kmh = round(mean(wind_kmh, na.rm = TRUE), 2),
 rain = round(mean(rain, na.rm = TRUE), 2),
 evap = round(mean(evap, na.rm = TRUE), 2),
-soil = round(mean(soil, na.rm = TRUE), 2)
+soil = round(mean(soil, na.rm = TRUE), 2),
+accuracy = n()
 )
 head(weather_avg)
+tail(weather_avg)
 
 dbWriteTable(weatherDB, "irish_average_weather", weather_avg)
 
