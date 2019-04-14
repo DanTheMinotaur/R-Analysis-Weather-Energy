@@ -5,6 +5,7 @@
 
 source("../functions.R")
 
+# Load weather data with most accuracy
 weather_data <- load.weatherdb(5)
 View(weather_data)
 colnames(weather_data)
