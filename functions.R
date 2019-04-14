@@ -11,6 +11,7 @@ check.packages <- function(Package){
     sapply(Package, require, character.only = TRUE)
 }
 
+# Load project packages
 Packages <- c(
     "DBI",
     "tidyverse",
