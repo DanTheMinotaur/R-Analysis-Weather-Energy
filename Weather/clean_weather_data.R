@@ -3,11 +3,8 @@
 # Created by: daniel
 # Created on: 14/04/2019
 
-# Load core functions
-source("../functions.R")
-
-# Create connection to weather database
-weatherDB <- dbConnect(RSQLite::SQLite(), "weather_data.sqlite")
+# Load core functions and weather DB
+source("./weather_functions.R")
 
 # Function will create and format daily station weather from csv file
 load_weather_data <- function(station, selected_columns=c()) {
