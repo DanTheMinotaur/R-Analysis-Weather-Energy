@@ -33,7 +33,7 @@ wind_kmh = round(mean(wind_kmh, na.rm = TRUE), 2),
 rain = round(mean(rain, na.rm = TRUE), 2),
 evap = round(mean(evap, na.rm = TRUE), 2),
 soil = round(mean(soil, na.rm = TRUE), 2),
-accuracy = n()
+accuracy = n() # Integer value stating number of stations that resulted in value
 )
 head(weather_avg)
 tail(weather_avg)
