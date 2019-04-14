@@ -15,7 +15,7 @@ weather_monthly_average <- summarize_each(group_by(weather_data, year, month), f
 View(weather_monthly_average)
 
 # Group By Day
-weather_daily_average <- summarize_each(group_by(weather_data, year, month, day), fun=mean, temp, wind_kmh, rain, evap, soil)
+weather_daily_average <- summarize_each(group_by(weather_data, year, month, day, datestring), fun=mean, temp, wind_kmh, rain, evap, soil)
 View(weather_daily_average)
 
 # Group By Year
