@@ -43,6 +43,7 @@ for (station in file_names) {
     load_weather_data(station, selected_columns)
 }
 
+# Query DB and get average betweeen each weather station
 query_result <- dbSendQuery(weatherDB,
 "SELECT
        station,

@@ -8,6 +8,8 @@ source("../functions.R")
 # Load energy data from DB
 energy_data <- load.energydb()
 
+head(energy_data)
+
 # Group Energy data by times, broken down into further subtimes for month, day, hours
 year_month_energy_usage <- summarize(group_by(energy_data, year, month), mean_energy_usage = round(mean(mwh, na.rm = TRUE), 2))
 colnames(year_month_energy_usage) <- c("Year", "Month", "Mwh")

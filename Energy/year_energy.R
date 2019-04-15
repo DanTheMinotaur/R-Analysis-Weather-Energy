@@ -3,7 +3,7 @@
 # Created by: Daniel Devine
 # Created on: 13/04/2019
 
-source("functions.R")
+source("../functions.R")
 
 # Load energy data from DB
 con <- load.energydb()

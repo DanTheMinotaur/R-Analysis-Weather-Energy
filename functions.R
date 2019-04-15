@@ -7,23 +7,23 @@
 check.packages <- function(Package){
     new.pkg <- Package[!(Package %in% installed.packages()[, "Package"])]
     if (length(new.pkg))
-        install.packages(new.pkg, dependencies = TRUE)
+      install.packages(new.pkg, dependencies = TRUE)
     sapply(Package, require, character.only = TRUE)
 }
 
 # Load project packages
 Packages <- c(
-    "DBI",
-    "tidyverse",
-    "lubridate"
+  "DBI",
+  "tidyverse",
+  "lubridate"
 )
 
 check.packages(Packages)
 
 # Loads Energy SQLlite DB and returns the connection object
 load.energydb <- function( db_file = "energy_data.sqlite"){
-    con <- dbConnect(RSQLite::SQLite(), db_file)
-    dbReadTable(con, "irish_energy_data")
+  con <- dbConnect(RSQLite::SQLite(), db_file)
+  dbReadTable(con, "irish_energy_data")
 }
 
 # Loads Weather Data, optional parametre to specify the weather station accuracy value[1-5] set to 0 for all data
@@ -38,4 +38,9 @@ load.weatherdb <- function(accuracy = 0, db_file = "weather_data.sqlite") {
         dbFetch(query_result)
     }
 
+}
+
+# Function pads date interger values with 0 
+pad.date <- function(num) {
+  str_pad(num, 2, pad = 0)
 }

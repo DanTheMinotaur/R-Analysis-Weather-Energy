@@ -11,7 +11,7 @@ weather_data <- load.weatherdb(5)
 colnames(weather_data)
 
 # Group By Month 
-weather_monthly_average <- summarize_each(group_by(weather_data, year, month), fun=mean, temp, wind_kmh, rain, evap, soil)
+weather_monthly_average <- summarize_each(group_by(weather_data, month), fun=mean, temp, wind_kmh, rain, evap, soil)
 #View(weather_monthly_average)
 
 # Group By Day

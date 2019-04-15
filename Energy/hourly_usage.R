@@ -16,7 +16,7 @@ year_hourly_data_usage$year <- factor(year_hourly_data_usage$year)
 
 # Split data by year and display multiple graphs
 ggplot(data=year_hourly_data_usage, aes(x=hour, y=mean_energy_usage)) +
-    geom_line() +
+  geom_line() +
     geom_point() + facet_wrap(~year)
 
 # Function creates Line graph with hourly usage data.

@@ -10,14 +10,7 @@ head(weather_data)
 # Filter out incomplete values
 weather_data <- filter(weather_data, year != 2008 & year != 2019)
 energy_data <- filter(energy_data, year != 2013 & year != 2019)
-
-#head(energy_data)
-#head(weather_data)
-
-# Function pads date interger values with 0 
-pad.date <- function(num) {
-  str_pad(num, 2, pad = 0)
-}
+energy_data$datestring <- paste(energy_data$year, pad.date(energy_data$month), pad.date(energy_data$day), sep = "-")
 
 # Group Energy Data By Aveage Usage Per Day
 energy_data_day <- summarize(group_by(energy_data, year, month, day), mean_energy_usage = round(mean(mwh, na.rm = TRUE), 2))
@@ -28,15 +21,10 @@ energy_data_month <- summarize(group_by(energy_data, year, month), mean_energy_u
 count(energy_data_month)
 energy_data_month$datestring <- paste(energy_data_month$year, pad.date(energy_data_month$month), sep = "-")
 
-# Group Energy Data By Month
-weather_data_month <- summarize_each(group_by(weather_data, year, month), fun=mean, temp, wind_kmh, rain, evap, soil)
-count(weather_data_month)
-weather_data_month$datestring <- paste(weather_data_month$year, pad.date(weather_data_month$month), sep = "-")
-
 head(weather_data)
 head(energy_data)
 # Merge Enery Data with Weather by day
-weather_energy_data_daily <- merge(weather_data, energy_data, by = "datestring")
+weather_energy_data_daily <- merge(weather_data, energy_data_day, by = "datestring")
 head(weather_energy_data_daily)
 weather_energy_data_daily$month.y = NULL
 weather_energy_data_daily$year.y = NULL
