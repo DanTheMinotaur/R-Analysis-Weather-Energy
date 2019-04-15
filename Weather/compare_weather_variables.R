@@ -3,7 +3,7 @@
 # Created by: Daniel Devine
 # Created on: 14/04/2019
 
-source("../weather_groupings.R")
+source("./weather_groupings.R")
 
 # Remove Incomplete weather data
 weather_daily_average <- filter(weather_daily_average, year != 2008 & year != 2019)

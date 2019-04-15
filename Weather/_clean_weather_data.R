@@ -10,7 +10,7 @@ weatherDB <- dbConnect(RSQLite::SQLite(), "weather_data.sqlite")
 # Function will create and format daily station weather from csv file
 load_weather_data <- function(station, selected_columns=c()) {
     # Read CSV File
-    weather_data = read.csv(paste("raw_data/" ,station, "-daily.csv",  sep = ""), header = TRUE)
+    weather_data = read.csv(paste("data/" ,station, "-daily.csv",  sep = ""), header = TRUE)
     # Assign Station name
     weather_data$station = station
     # Select specific columns
