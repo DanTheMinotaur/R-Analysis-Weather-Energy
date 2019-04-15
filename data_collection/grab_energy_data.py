@@ -1,8 +1,11 @@
 import requests
 import csv
 from time import sleep
+
+# Link to API
 # http://smartgriddashboard.eirgrid.com/DashboardService.svc/data?area=demandactual&region=ALL&datefrom=01-Apr-2019+00%3A00&dateto=09-Apr-2019+23%3A59&_=1554939751279
 
+# Days of month
 days_of_month = {
     "Jan": 31,
     "Feb": 28,
@@ -18,12 +21,14 @@ days_of_month = {
     "Dec": 31
 }
 
+# Write CSV file
 def write_csv(rows):
     with open('energy_data.csv', 'a', newline='') as csvfile:
         writer = csv.writer(csvfile)
         for row in rows:
             writer.writerow(row)
 
+# Collect Data using REquests Libarary
 def collect_data(start, end, region="ROI"):
     url = "http://smartgriddashboard.eirgrid.com/DashboardService.svc/data?area=demandactual&region={region}&datefrom={start}+00%3A00&dateto={end}+23%3A59&_=1554939751279"
 
@@ -36,6 +41,7 @@ def collect_data(start, end, region="ROI"):
     print(res.headers)
     return res.json()
 
+# Format Dta as List
 def format_data(json_data):
     data = []
     if "Rows" in json_data:
@@ -49,6 +55,7 @@ def format_data(json_data):
             ])
     return data
 
+# Loop Through years to extract data from api
 for year in range(2013, 2020):
     formatted_data = list()
     print(year)
