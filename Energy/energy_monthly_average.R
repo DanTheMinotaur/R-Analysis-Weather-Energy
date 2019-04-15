@@ -8,7 +8,9 @@ source("./energy_groupings.R")
 View(monthly_energy_usage)
 colnames(monthly_energy_usage)
 
+# Factor years for display on graph
 monthly_energy_usage$month <- factor(monthly_energy_usage$month)
+# Convert int month to word
 monthly_energy_usage$month <- month.abb[monthly_energy_usage$month]
 
 # Bar chart with the energy usage by month. 
