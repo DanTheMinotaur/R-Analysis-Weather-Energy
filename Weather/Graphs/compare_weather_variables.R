@@ -3,15 +3,14 @@
 # Created by: Daniel Devine
 # Created on: 14/04/2019
 
-source("./weather_groupings.R")
+source("../weather_groupings.R")
 
-weather_daily_average <- filter(weather_daily_average, year != 2008)
-weather_daily_average <- filter(weather_daily_average, year != 2019)
+# Remove Incomplete weather data
+weather_daily_average <- filter(weather_daily_average, year != 2008 & year != 2019)
 weather_daily_average$date <- as.Date(weather_daily_average$datestring, format = "%Y-%m-%d")
 
 # Remove Incomplete weather data
-weather_yearly_average <- filter(weather_yearly_average, year != 2008)
-weather_yearly_average <- filter(weather_yearly_average, year != 2019)
+weather_yearly_average <- filter(weather_yearly_average, year != 2008 & year != 2019)
 
 # Create point plot showing the average wind speed against the average temperate
 ggplot(weather_yearly_average, aes(wind_kmh, temp, color = year, label=year)) +  
@@ -20,10 +19,7 @@ ggplot(weather_yearly_average, aes(wind_kmh, temp, color = year, label=year)) +
 
 View(weather_yearly_average)
 
-ggplot(weather_yearly_average, aes(x = temp)) + 
-  geom_density(col = NA, alpha(0.35))
-
-# Display all data by year
+# Display all data by average by year
 line.alldata.by_year <- function(selected_year, datapoints = c("temp")) {
     chart_title = paste("Air Temperature, Windspeed, Rain Levels, Evaporation Levels and Soil Temperature for ", selected_year, sep=" ")
     year_weather = filter(weather_daily_average, year == selected_year)

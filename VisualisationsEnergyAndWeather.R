@@ -6,6 +6,7 @@
 source("./DataEnergyAndWeather.R")
 
 head(weather_energy_data_daily)
+# Convert DateString to date object
 weather_energy_data_daily$date <- as.Date(weather_energy_data_daily$datestring, format = "%Y-%m-%d")
 
 weather_energy_data_monthly$datestring <- factor(weather_energy_data_monthly$datestring )
@@ -24,6 +25,15 @@ ggplot(weather_energy_data_daily, aes(x = temp, y = mean_energy_usage)) +
                   contour = FALSE) +
   scale_fill_viridis_c() +
   xlab("Temp C") +
+  ylab("Energy Mwh")
+
+# 2D Desity Visualisation Temp V Energy using Virdis Fill
+ggplot(weather_energy_data_daily, aes(x = rain, y = mean_energy_usage)) +
+  stat_density_2d(geom = "tile",
+                  aes(fill = ..density..),
+                  contour = FALSE) +
+  scale_fill_viridis_c() +
+  xlab("Rain MM") +
   ylab("Energy Mwh")
 
 

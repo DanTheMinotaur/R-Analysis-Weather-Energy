@@ -15,13 +15,8 @@ year_month_day_energy_usage <- summarize(group_by(energy_data, year, month, day)
 colnames(year_month_day_energy_usage) <- c("Year", "Month", "Day", "Mwh")
 year_month_day_hour_energy_usage <- summarize(group_by(energy_data, year, month, day, hour), mean_energy_usage = round(mean(mwh, na.rm = TRUE), 2))
 colnames(year_month_day_hour_energy_usage) <- c("Year", "Month", "Day", "Hour", "Mwh")
-year_hourly_data_usage <- summarize(group_by(energy_data, year, hour), mean_energy_usage = round(mean(mwh, na.rm = TRUE), 2))
+year_hourly_energy_usage <- summarize(group_by(energy_data, year, hour), mean_energy_usage = round(mean(mwh, na.rm = TRUE), 2))
 colnames(year_month_day_hour_energy_usage) <- c("Year", "Hour", "Mwh")
-year_daily_data_usage <- summarize(group_by(energy_data, year, day), mean_energy_usage = round(mean(mwh, na.rm = TRUE), 2))
+year_daily_energy_usage <- summarize(group_by(energy_data, year, day), mean_energy_usage = round(mean(mwh, na.rm = TRUE), 2))
 colnames(year_month_day_hour_energy_usage) <- c("Year", "Day", "Mwh")
-
-year_month_energy_usage
-year_month_day_energy_usage
-year_month_day_hour_energy_usage
-year_hourly_data_usage
-year_daily_data_usage
+monthly_energy_usage <- summarize(group_by(energy_data, month), mean_energy_usage = round(mean(mwh, na.rm = TRUE), 2))

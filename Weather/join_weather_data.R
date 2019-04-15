@@ -26,7 +26,7 @@ weather_station_data <- dbFetch(query_result)
 # print head for validation
 head(weather_station_data)
 
-# Combine weather station data by
+# Combine weather station data by year month and day and average the values 
 weather_avg <- summarize(group_by(weather_station_data, year, month, day, datestring),
 temp = round(mean(avgtemp, na.rm = TRUE), 2),
 wind_kmh = round(mean(wind_kmh, na.rm = TRUE), 2),
@@ -35,9 +35,9 @@ evap = round(mean(evap, na.rm = TRUE), 2),
 soil = round(mean(soil, na.rm = TRUE), 2),
 accuracy = n() # Integer value stating number of stations that resulted in value
 )
-#weather_avg$date <- paste(c(weather_avg$year,weather_avg$month, weather_avg$day), sep="-")
 head(weather_avg)
 tail(weather_avg)
 
+# Write Data to SQL Database table
 dbWriteTable(weatherDB, "irish_average_weather", weather_avg)
 

@@ -1,6 +1,6 @@
  
 
-source("./weather_groupings.R")
+source("../weather_groupings.R")
 
 View(weather_yearly_average)
 

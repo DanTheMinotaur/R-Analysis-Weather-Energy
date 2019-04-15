@@ -1,5 +1,5 @@
 # Load data grouping
-source("./weather_groupings.R")
+source("../weather_groupings.R")
 class(weather_daily_average)
 colnames(weather_daily_average)
 

@@ -1,5 +1,5 @@
-# Title     : TODO
-# Objective : TODO
+# Title     : weather_functions.R
+# Objective : To load SQLite Database and global functions
 # Created by: daniel
 # Created on: 14/04/2019
 

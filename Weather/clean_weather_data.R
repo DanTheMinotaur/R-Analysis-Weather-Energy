@@ -37,7 +37,7 @@ file_names <- c(
 # Columns for database
 selected_columns <- c("date", "maxtp", "mintp", "rain", "wdsp", "evap", "soil", "station")
 
-# Look through csv file and add to DB
+# Loop through csv file and add to DB
 for (station in file_names) {
     load_weather_data(station, selected_columns)
 }
