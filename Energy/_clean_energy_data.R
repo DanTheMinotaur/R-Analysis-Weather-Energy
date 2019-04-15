@@ -3,22 +3,7 @@
 # Created by: DanieL Devine
 # Created on: 12/04/2019
 
-# Install Dependencies
-# install.packages("tidyr")
-# install.packages(c("dbplyr", "RSQLite"))
-# install.packages("DBI")
-# Load dependencies
-
-source("functions.R")
-
-Packages <- c(
-  "dbplyr",
-  "RSQLite",
-  "DBI",
-  "lubridate"
-)
-
-check.packages(Packages)
+source("../functions.R")
 
 # Function to remove any rows with empty values 
 removeEmptyRows <- function(dataFrame) {
@@ -35,7 +20,7 @@ removeEmptyRows <- function(dataFrame) {
 
 
 # Load data from CSV
-raw_energy <- read.csv('./energy_data.csv')
+raw_energy <- read.csv('./data/energy_data.csv')
 
 # Remove Empty Rows
 energy_removed_empty <- removeEmptyRows(raw_energy)
