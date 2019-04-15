@@ -1,5 +1,5 @@
-# Title     : TODO
-# Objective : TODO
+# Title     : Join Weather Data
+# Objective : Initial Weather Data is split between multiple stations, this script is create averate values
 # Created by: daniel
 # Created on: 14/04/2019
 
